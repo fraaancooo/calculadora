@@ -1,2 +1,0 @@
-# calculadora
-Uma simples calculadora.
