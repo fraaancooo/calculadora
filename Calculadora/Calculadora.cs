@@ -174,7 +174,7 @@ namespace Calculadora
             }
         }
 
-        // Implementando botões de reset [ CE / C ]
+        // Implementando botões de reset [ CE , C ]
 
         private void btn_ce_Click(object sender, EventArgs e)
         {
@@ -188,7 +188,7 @@ namespace Calculadora
             txt_visor.Text = "";
         }
 
-        // Implementando operações básicas (soma, diminui, multiplica, divide)
+        // Implementando operações básicas [ + , - , * , / ]
 
         private void btn_soma_Click(object sender, EventArgs e)
         {
@@ -218,7 +218,7 @@ namespace Calculadora
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            txt_visor.Text = txt_visor.Text.Remove(txt_visor.Text.Length-1, 1);
+            Backspace(txt_visor.Text.Length);
         }
 
         // Implementando botão de igual [ = ]
@@ -233,18 +233,24 @@ namespace Calculadora
             }
         }
 
-        // Implementando operações avançadas [ log / x^2 / x^y / sen / cos / tan / raiz )
+        // Implementando operações avançadas [ log , x^2 , x^y , sen , cos , tan , raiz ]
 
         private void btn_log_Click(object sender, EventArgs e)
         {
-            txt_visor.Text = Convert.ToString(Math.Log10(Convert.ToDouble(txt_visor.Text)));
-            visorContemNumero = false;
+            if (visorContemNumero)
+            {
+                txt_visor.Text = Convert.ToString(Math.Log10(Convert.ToDouble(txt_visor.Text)));
+                visorContemNumero = false; 
+            }
         }
 
         private void btn_exp2_Click(object sender, EventArgs e)
         {
-            txt_visor.Text = Convert.ToString(Math.Pow(Convert.ToDouble(txt_visor.Text), 2));
-            visorContemNumero = false;
+            if (visorContemNumero)
+            {
+                txt_visor.Text = Convert.ToString(Math.Pow(Convert.ToDouble(txt_visor.Text), 2));
+                visorContemNumero = false; 
+            }
         }
 
         private void btn_pot_Click(object sender, EventArgs e)
@@ -255,40 +261,55 @@ namespace Calculadora
 
         private void btn_sen_Click(object sender, EventArgs e)
         {
-            // Seno já convertido em graus
-            txt_visor.Text = Convert.ToString(Math.Sin((Math.PI / 180) * (Convert.ToDouble(txt_visor.Text))));
-            visorContemNumero = false;
+            if (visorContemNumero)
+            {
+                // Seno já convertido em graus
+                txt_visor.Text = Convert.ToString(Math.Sin((Math.PI / 180) * (Convert.ToDouble(txt_visor.Text))));
+                visorContemNumero = false; 
+            }
         }
 
         private void btn_cos_Click(object sender, EventArgs e)
         {
-            // Cosseno já convertido em graus
-            txt_visor.Text = Convert.ToString(Math.Cos((Math.PI / 180) * (Convert.ToDouble(txt_visor.Text))));
-            visorContemNumero = false;
+            if (visorContemNumero)
+            {
+                // Cosseno já convertido em graus
+                txt_visor.Text = Convert.ToString(Math.Cos((Math.PI / 180) * (Convert.ToDouble(txt_visor.Text))));
+                visorContemNumero = false; 
+            }
         }
 
         private void btn_tan_Click(object sender, EventArgs e)
         {
-            // Tangente já convertida em graus
-            txt_visor.Text = Convert.ToString(Math.Tan((Math.PI / 180) * (Convert.ToDouble(txt_visor.Text))));
-            visorContemNumero = false;
+            if (visorContemNumero)
+            {
+                // Tangente já convertida em graus
+                txt_visor.Text = Convert.ToString(Math.Tan((Math.PI / 180) * (Convert.ToDouble(txt_visor.Text))));
+                visorContemNumero = false; 
+            }
         }
 
         private void btn_raiz_Click(object sender, EventArgs e)
         {
-            txt_visor.Text = Convert.ToString(Math.Sqrt(Convert.ToDouble(txt_visor.Text)));
-            visorContemNumero = false;
+            if (visorContemNumero)
+            {
+                txt_visor.Text = Convert.ToString(Math.Sqrt(Convert.ToDouble(txt_visor.Text)));
+                visorContemNumero = false; 
+            }
         }
 
         // Implementando operações recursivas [ n! ]
 
         private void btn_fatorial_Click(object sender, EventArgs e)
         {
-            txt_visor.Text = Convert.ToString(Fatorial(Convert.ToDouble(txt_visor.Text)));
-            visorContemNumero = false;
+            if (visorContemNumero)
+            {
+                txt_visor.Text = Convert.ToString(Fatorial(Convert.ToDouble(txt_visor.Text)));
+                visorContemNumero = false; 
+            }
         }
 
-        // Implementando operações de repetição [ MC / MR / M+ / M- ]
+        // Implementando operações de repetição [ MC , MR , M+ , M- ]
 
         private void btn_mc_Click(object sender, EventArgs e)
         {
@@ -381,6 +402,18 @@ namespace Calculadora
                 return 1;
             }
             return num * Fatorial(num - 1);
+        }
+
+        private void Backspace(int len)
+        {
+            if (len > 0)
+            {
+                txt_visor.Text = txt_visor.Text.Remove(txt_visor.Text.Length - 1, 1);
+            }
+            else
+            {
+                visorContemNumero = false;
+            }
         }
     }
 }

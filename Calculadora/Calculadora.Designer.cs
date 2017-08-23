@@ -63,8 +63,8 @@
             this.lbl_desenvolvedor = new System.Windows.Forms.Label();
             this.lbl_operacao = new System.Windows.Forms.Label();
             this.tp_toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.btn_back = new System.Windows.Forms.Button();
             this.lbl_memoria = new System.Windows.Forms.Label();
+            this.btn_back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txt_visor
@@ -441,11 +441,11 @@
             // 
             this.lbl_desenvolvedor.AutoSize = true;
             this.lbl_desenvolvedor.Enabled = false;
-            this.lbl_desenvolvedor.Location = new System.Drawing.Point(84, 470);
+            this.lbl_desenvolvedor.Location = new System.Drawing.Point(112, 470);
             this.lbl_desenvolvedor.Name = "lbl_desenvolvedor";
-            this.lbl_desenvolvedor.Size = new System.Drawing.Size(130, 13);
+            this.lbl_desenvolvedor.Size = new System.Drawing.Size(74, 13);
             this.lbl_desenvolvedor.TabIndex = 11;
-            this.lbl_desenvolvedor.Text = "fraaancooo@outlook.com";
+            this.lbl_desenvolvedor.Text = "RCL Solutions";
             // 
             // lbl_operacao
             // 
@@ -456,6 +456,16 @@
             this.lbl_operacao.Size = new System.Drawing.Size(13, 13);
             this.lbl_operacao.TabIndex = 12;
             this.lbl_operacao.Text = "+";
+            // 
+            // lbl_memoria
+            // 
+            this.lbl_memoria.AutoSize = true;
+            this.lbl_memoria.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_memoria.Location = new System.Drawing.Point(16, 38);
+            this.lbl_memoria.Name = "lbl_memoria";
+            this.lbl_memoria.Size = new System.Drawing.Size(13, 13);
+            this.lbl_memoria.TabIndex = 12;
+            this.lbl_memoria.Text = "0";
             // 
             // btn_back
             // 
@@ -468,16 +478,6 @@
             this.tp_toolTip.SetToolTip(this.btn_back, "Backspace");
             this.btn_back.UseVisualStyleBackColor = true;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
-            // 
-            // lbl_memoria
-            // 
-            this.lbl_memoria.AutoSize = true;
-            this.lbl_memoria.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_memoria.Location = new System.Drawing.Point(16, 38);
-            this.lbl_memoria.Name = "lbl_memoria";
-            this.lbl_memoria.Size = new System.Drawing.Size(13, 13);
-            this.lbl_memoria.TabIndex = 12;
-            this.lbl_memoria.Text = "0";
             // 
             // Calculadora
             // 
@@ -521,7 +521,7 @@
             this.Controls.Add(this.txt_visor);
             this.Name = "Calculadora";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Calculadora";
+            this.Text = "RCL Calc";
             this.ResumeLayout(false);
             this.PerformLayout();
 
